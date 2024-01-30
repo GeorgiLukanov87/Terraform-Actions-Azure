@@ -12,7 +12,7 @@ env:
 
 jobs:
   terraform-apply:
-    name: 'Terraform-test'
+    name: 'Terraform-Plan'
     runs-on: ubuntu-latest
 
     steps:
