@@ -37,7 +37,7 @@ jobs:
       - name: Terraform Plan
         id: tf-plan
         run: terraform plan -out tfplan
-        
+
       # Save plan to artifacts
       - name: Publish Terraform Plan
         uses: actions/upload-artifact@v3
@@ -60,7 +60,7 @@ jobs:
       # Initialize a new or existing Terraform working directory
       # Creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
-        run: az login -u ${{ secrets.AZ_USERNAME }} -p ${{ secrets.AZ_PASSWORD }} && terraform init
+        run: terraform init
       # Download saved plan from artifacts
       - name: Download Terraform Plan
         uses: actions/download-artifact@v3
