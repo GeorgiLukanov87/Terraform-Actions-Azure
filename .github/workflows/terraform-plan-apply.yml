@@ -37,6 +37,7 @@ jobs:
       - name: Terraform Plan
         id: tf-plan
         run: terraform plan -out tfplan
+        
       # Save plan to artifacts
       - name: Publish Terraform Plan
         uses: actions/upload-artifact@v3
