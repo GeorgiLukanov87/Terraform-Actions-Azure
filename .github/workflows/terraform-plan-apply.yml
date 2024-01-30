@@ -38,6 +38,7 @@ jobs:
 
     - name: Archive Terraform Plan
       uses: actions/upload-artifact@v2
+      with:
         name: tfplan
         path: tfplan.out
 
