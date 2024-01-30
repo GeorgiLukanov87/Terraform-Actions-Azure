@@ -26,7 +26,7 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          auth-type: service-principal
+          auth-type: SERVICE_PRINCIPAL
       # Install the latest verssion of the Terraform CLI
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
