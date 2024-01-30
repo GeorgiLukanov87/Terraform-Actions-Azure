@@ -21,23 +21,26 @@ jobs:
       # Checkout the repository to the GitHub Action Runner
       - name: Checkout
         uses: actions/checkout@v3
+
       # Login to Azure via Azure CLI
       - name: Login via Azure CLI
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          auth-type: SERVICE_PRINCIPAL
+
+
       # Install the latest verssion of the Terraform CLI
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
+
       # Initialize a new or existing Terraform working directory
       # Creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
         run: terraform init
+
       # Generate an execution plan for Terraform
       - name: Terraform Plan
-        id: tf-plan
-        run: terraform plan -out tfplan
+        run: terraform plan -out=tfplan
 
       # Save plan to artifacts
       - name: Publish Terraform Plan
@@ -55,18 +58,22 @@ jobs:
       # Checkout the repository to the github Action Runner
       - name: Checkout
         uses: actions/checkout@v3
+
       # Install the latest verssion of the Terraform CLI
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
+
       # Initialize a new or existing Terraform working directory
       # Creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
         run: terraform init
+
       # Download saved plan from artifacts
       - name: Download Terraform Plan
         uses: actions/download-artifact@v3
         with:
           name: tfplan
+
       # Terraform Apply
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
