@@ -57,7 +57,12 @@ jobs:
       # Checkout the repository to the github Action Runner
       - name: Checkout
         uses: actions/checkout@v3
-
+            # Login to Azure via Azure CLI
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
       # Install the latest verssion of the Terraform CLI
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
