@@ -12,7 +12,6 @@ env:
   ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
 
 jobs:
-
   terraform-plan:
     name: "Terraform Plan"
     runs-on: ubuntu-latest
